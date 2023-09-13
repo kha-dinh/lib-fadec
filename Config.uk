@@ -1,0 +1,33 @@
+menuconfig LIBFADEC
+        bool "The Fadec lightweight x86 disassembler"
+        default y
+
+if LIBFADEC
+
+choice
+        prompt "Architecture selection"
+        default LIBFADEC_ARCH_BOTH
+
+config LIBFADEC_ARCH_BOTH
+        bool "Enable 32 and 64-bit support"
+
+config LIBFADEC_ARCH_ONLY_32
+        bool "Only enable 32-bit support"
+
+config LIBFADEC_ARCH_ONLY_64
+        bool "Only enable 64-bit support"
+endchoice
+
+config LIBFADEC_DECODE
+        bool "Enable decoding functionality"
+        default n
+
+config LIBFADEC_ENCODE
+        bool "Enable encoding functionality"
+        default n
+
+config LIBFADEC_ENCODE2
+        bool "Enable encoding2 functionality"
+        default n
+
+endif
